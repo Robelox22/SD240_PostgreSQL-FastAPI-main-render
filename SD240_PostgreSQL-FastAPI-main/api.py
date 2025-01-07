@@ -8,7 +8,7 @@ import orm.repo as repo #funciones para hacer consultas a la BD
 import orm.esquemas as esquemas
 from sqlalchemy.orm import Session
 from orm.config import generador_sesion #generador de sesiones
-
+ 
 # creación del servidor
 app = FastAPI()
 
