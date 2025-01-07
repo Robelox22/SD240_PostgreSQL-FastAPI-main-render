@@ -28,5 +28,4 @@ def generador_sesion():
     finally:
         sesion.close()
 
-#3.- Obtener la clase base para mapear tablas
-BaseClass = declarative_base()
+

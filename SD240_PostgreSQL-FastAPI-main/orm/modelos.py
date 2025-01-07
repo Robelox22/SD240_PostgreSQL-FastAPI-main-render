@@ -8,7 +8,8 @@ from sqlalchemy.orm import sessionmaker
 from sqlalchemy.ext.declarative import declarative_base
 # Para que calcular la hora actual
 import datetime
-
+#3.- Obtener la clase base para mapear tablas
+BaseClass = declarative_base()
 # Por convención las clases tienen nombres en singular y comienzan con mayúsculas
 class Usuario(BaseClass):
     __tablename__="usuarios" # Nombre de la tabla en la BD
