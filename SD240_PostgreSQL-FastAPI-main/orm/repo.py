@@ -148,3 +148,18 @@ def devuelve_compras(sesion:Session):
 def devuelve_compras_por_usuario_precio(sesion:Session, id_usr:int, p:float):
     print("select * from app.compras where id_usuario=id_usr and precio>=p")
     return sesion.query(modelos.Compra).filter(and_(modelos.Compra.id_usuario==id_usr, modelos.Compra.precio>=p)).all()
+
+
+def actualiza_compra(sesion: Session, id_compra: int, compra_esquema: esquemas.CompraBase):
+    print("Actualizando compra con id:", id_compra)
+    compra_bd = compra_por_id(sesion, id_compra)
+    if compra_bd:
+       
+        compra_bd.producto = compra_esquema.producto
+        compra_bd.precio = compra_esquema.precio
+        sesion.commit()
+        sesion.refresh(compra_bd)
+        return compra_bd
+    else:
+        return {"mensaje": "Compra no encontrada"}
+    
